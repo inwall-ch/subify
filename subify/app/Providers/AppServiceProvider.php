@@ -11,7 +11,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(\App\Domains\Payment\Contracts\PaymentGateway::class, function ($app) {
+            return match (config('services.payment.driver')) {
+                'stripe' => new \App\Domains\Payment\Adapters\StripePaymentAdapter(),
+                default => new \App\Domains\Payment\Adapters\FakePaymentAdapter(),
+            };
+        });
     }
 
     /**
