@@ -13,8 +13,9 @@ use NumberFormatter;
 readonly class Money
 {
     /**
-     * @param int $amount Amount in cents.
-     * @param string $currency 3-letter ISO currency code.
+     * @param  int  $amount  Amount in cents.
+     * @param  string  $currency  3-letter ISO currency code.
+     *
      * @throws InvalidArgumentException
      */
     public function __construct(
@@ -36,7 +37,7 @@ readonly class Money
     public function format(string $locale = 'en_US'): string
     {
         $formatter = new NumberFormatter($locale, NumberFormatter::CURRENCY);
-        
+
         return $formatter->formatCurrency($this->amount / 100, $this->currency);
     }
 

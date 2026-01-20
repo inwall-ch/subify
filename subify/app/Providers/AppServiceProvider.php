@@ -13,8 +13,8 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(\App\Domains\Payment\Contracts\PaymentGateway::class, function ($app) {
             return match (config('services.payment.driver')) {
-                'stripe' => new \App\Domains\Payment\Adapters\StripePaymentAdapter(),
-                default => new \App\Domains\Payment\Adapters\FakePaymentAdapter(),
+                'stripe' => new \App\Domains\Payment\Adapters\StripePaymentAdapter,
+                default => new \App\Domains\Payment\Adapters\FakePaymentAdapter,
             };
         });
     }

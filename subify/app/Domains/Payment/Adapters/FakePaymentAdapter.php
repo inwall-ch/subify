@@ -11,6 +11,6 @@ readonly class FakePaymentAdapter implements PaymentGateway
 {
     public function charge(Money $amount, string $paymentToken): string
     {
-        return 'fake_txn_' . uniqid();
+        return 'fake_txn_'.uniqid();
     }
 }
