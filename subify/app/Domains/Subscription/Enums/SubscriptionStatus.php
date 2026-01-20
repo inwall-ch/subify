@@ -19,7 +19,7 @@ enum SubscriptionStatus: string
      */
     public function hasAccess(): bool
     {
-        return match($this) {
+        return match ($this) {
             self::Active, self::PastDue => true,
             default => false,
         };
