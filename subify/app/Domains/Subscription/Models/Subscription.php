@@ -11,6 +11,11 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Represents a user subscription with snapshot of plan features.
+ *
+ * @property SubscriptionStatus $status
+ * @property \Illuminate\Support\Carbon $starts_at
+ * @property \Illuminate\Support\Carbon|null $ends_at
+ * @property \ArrayObject $features_snapshot
  */
 class Subscription extends Model
 {

@@ -9,16 +9,16 @@ use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\Validation\StringType;
 use Spatie\LaravelData\Data;
 
-readonly class SubscriptionData extends Data
+class SubscriptionData extends Data
 {
     public function __construct(
         #[Required, IntegerType]
-        public int $userId,
+        public readonly int $userId,
 
         #[Required, StringType]
-        public string $planKey,
+        public readonly string $planKey,
 
         #[Required, StringType]
-        public string $paymentMethodId,
+        public readonly string $paymentMethodId,
     ) {}
 }
