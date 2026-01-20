@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace App\Domains\Subscription\Models;
 
 use App\Domains\Subscription\Enums\SubscriptionStatus;
+use Database\Factories\SubscriptionFactory;
 use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Database\Factories\SubscriptionFactory;
 
 /**
  * Represents a user subscription with snapshot of plan features.

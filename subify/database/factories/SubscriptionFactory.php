@@ -16,7 +16,7 @@ class SubscriptionFactory extends Factory
     /**
      * The name of the factory's corresponding model.
      *
-     * @var string
+     * @var class-string<Subscription>
      */
     protected $model = Subscription::class;
 
@@ -28,7 +28,7 @@ class SubscriptionFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => 1, // Default user
+            'user_id' => 1,
             'plan_key' => 'basic_monthly',
             'status' => SubscriptionStatus::Active,
             'starts_at' => now(),
