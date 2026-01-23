@@ -1,3 +1,11 @@
+[![CI Pipeline](https://github.com/web-inwall/subify/actions/workflows/ci.yml/badge.svg)](https://github.com/web-inwall/subify/actions)
+[![PHP Version](https://img.shields.io/badge/PHP-8.4-4169E1.svg?style=flat&logo=php&logoColor=white)](https://php.net)
+[![Laravel](https://img.shields.io/badge/Laravel-12.x-4169E1.svg?style=flat&logo=laravel&logoColor=white)](https://laravel.com)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1.svg?style=flat&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Redis](https://img.shields.io/badge/Redis-7.x-4169E1.svg?style=flat&logo=redis&logoColor=white)](https://redis.io/)
+[![Code Style](https://img.shields.io/badge/code%20style-PSR--12-4169E1)](https://www.php-fig.org/psr/psr-12/)
+[![Larastan](https://img.shields.io/badge/Larastan-Level%205-4169E1)](https://github.com/larastan/larastan)
+
 # Subify - SaaS Subscription Management API
 
 A robust, high-performance SaaS subscription management API built for scalability and flexibility.
@@ -18,11 +26,19 @@ A robust, high-performance SaaS subscription management API built for scalabilit
 ## 🚀 Installation
 
 ```bash
-# Navigate to the project directory
-cd subify
+composer install
+cp .env.example .env
+php artisan sail:install
+./vendor/bin/sail up -d
+./vendor/bin/sail artisan migrate
+```
 
-# Start the application
-docker compose up -d
+## 📖 Architecture
+```bash
+SubscriptionController → SubscriptionData DTO → SubscribeUserAction → Pipeline:
+  ├── EnsurePlanIsAvailable
+  ├── ProcessPayment (Strategy)
+  └── CreateSubscriptionRecord
 ```
 
 ## 🔌 API Example
